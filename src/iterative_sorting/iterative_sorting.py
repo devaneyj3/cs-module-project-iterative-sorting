@@ -2,35 +2,31 @@
 def selection_sort(arr):
     # loop through n-1 elements
     for i in range(0, len(arr)):
-        
-        # get the current value at the index of list
         value = arr[i]
-        
-        # to look left subract one from index
         left_index = i - 1
-    
         while value < arr[left_index] and left_index >= 0:
-            
-            
-            print(f'\nValues {value} is greater left_index {left_index}')
-            # array in current position is swaped with array at previous position
-            
-            # Why can't we assign to array[i] if it is the same thing
             arr[left_index + 1] = arr[left_index]
             left_index -= 1
-            print(arr)
         arr[left_index + 1] = value
     return arr
-
-selection_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7])
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # Your code here
+    
+    has_swapped = True
+
+    while(has_swapped):
+        has_swapped = False
+        for i in range(0, len(arr) - 1):
+            if arr[i] > arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i + 1 ], arr[i]
+                has_swapped = True
 
 
     return arr
+
+bubble_sort([1, 5, 8, 4, 2, 9, 6, 0, 3, 7])
 
 '''
 STRETCH: implement the Counting Sort function below
